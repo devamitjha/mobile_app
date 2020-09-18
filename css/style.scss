@@ -1,0 +1,176 @@
+*{
+    margin:0;
+    padding:0;    
+}
+$roboto:'Roboto';
+$cursive_font:'Satisfy';
+$round:'Varela Round';
+$primery_color:#f7f7f9;
+$secondary_color:#3ab2ee;
+$star:#fbab56;
+$color:#18407e;
+
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    font-family: $roboto;
+}
+.d_flex{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+}
+.bottom_nav{
+    position:fixed;
+    width:100%;
+    height:80px;
+    background-color:$primery_color;
+    z-index: 99;
+    bottom:0;
+    left:0;  
+    @extend .d_flex;  
+    .item_{
+        width:calc(100% / 4);
+        @extend .d_flex;        
+        height:100%;
+        &.active{
+            background-color:$secondary_color; 
+            color:#fff;
+        }
+        color:$color;
+        font-size:30px;
+    }
+}
+.container{
+    display:block;
+    width:100%;
+    padding:10px 25px 90px 25px;
+    box-sizing: border-box;
+    height: 100%;
+    position: relative;
+    .row{
+        @extend .d_flex;
+        justify-content: space-between;
+        .row_item{
+            width:50%;
+            p{
+                font-size:18px;
+                color:$color;
+                text-align:left;
+            }
+            .avatar{
+                width:60px;
+                height:60px;
+                display:block;
+                overflow: hidden;
+                margin-left:auto;
+                border:1px solid $secondary_color;
+                border-radius: 100%;
+                img{
+                    width:100%;
+                    height:100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    h1{
+        font-size:40px;
+        margin-top:10px;
+    }
+}
+.horizontal_tab{
+    background-color:#fff;
+    overflow-y: auto;
+    width:100%;
+    margin-top:30px;
+    ul{
+        list-style-type: none;
+        padding:10px;
+        margin:0;
+        white-space: nowrap;
+        li{ 
+            display:inline-block;
+            white-space: normal; 
+            margin-right:10px;
+            font-size:18px;  
+            box-sizing: border-box;
+            span{
+                display:inline-block;
+                padding:10px 15px;
+            }
+            &.active{
+                color:$secondary_color;
+                font-weight: 600;
+                position:relative;
+                &:after{
+                    content:"";
+                    width:10px;
+                    height:10px;
+                    border-radius: 100%;
+                    background-color:$secondary_color;
+                    position:absolute;
+                    left:50%;
+                    bottom:-10px;
+                    transform:translateY(-50%);
+                }
+            }          
+        }
+    }
+    &::-webkit-scrollbar{
+        display:none;
+    }
+}
+.country_item{
+    display:none;
+    &.active{
+        display:block;
+    }
+}
+.card{
+    display:block;
+    margin:20px 0;
+    .card_container{
+        @extend .d_flex;
+        justify-content: space-between;
+        background-color:$primery_color;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        .card_img{
+            display:block;
+            width:20vh;
+            height:13vh;
+            overflow: hidden;
+            border-radius: 15px;
+            img{
+               display:block;
+               width:100%;
+               height:100%;
+               object-fit: cover;         
+            }
+        }
+        .card_details{
+            width:calc(100% - 22vh);
+            padding-left:2vh;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            padding-right:1vh;
+            h2{
+                font-size:2vh;               
+            }
+            .rating{
+                color:$star;
+                font-size:1.2vh;
+                margin:.5vh 0;
+            }
+            p{
+                font-size:1.3vh;
+                line-height: 1.5;
+            }
+        }
+        
+    }
+}
